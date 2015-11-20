@@ -20,12 +20,15 @@ import com.mugen.daggersonglist.R;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 /**
  * A simple {@link Fragment} subclass.
  */
 public class SongsListFragment extends Fragment implements ViewOps.songsListOps{
     private final String TAG = this.getClass().getName();
     ListView listView;
+    @Inject
     PresenterOps.SongsListOps presenter;
     public SongsListFragment() {
         // Required empty public constructor
@@ -33,7 +36,6 @@ public class SongsListFragment extends Fragment implements ViewOps.songsListOps{
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        presenter = new SongsListPresenter(this,new SongManager(presenter));
 
     }
     @Override

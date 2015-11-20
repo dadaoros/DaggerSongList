@@ -1,7 +1,9 @@
 package com.mugen.daggersonglist.Components;
 
+import com.mugen.daggersonglist.ActivityScope;
 import com.mugen.daggersonglist.Modules.LoadSongsModule;
 import com.mugen.daggersonglist.Presenters.SongsListPresenter;
+import com.mugen.daggersonglist.SongsListComponent;
 import com.mugen.daggersonglist.Views.SongsListFragment;
 
 import dagger.Component;
@@ -9,14 +11,15 @@ import dagger.Component;
 /**
  * Created by ORTEGON on 19/11/2015.
  */
-//@ActivityScope
+@ActivityScope
 @Component(
-       //dependencies = SpotifyStreamerComponent.class,
+        //el modulo actual no puede proporcionarnos el interactor, por eso requerimos de otro componente
+       dependencies = SongsListComponent.class,
        modules = LoadSongsModule.class
 )
 public interface LoadSongsListComponent {
 
     void inject(SongsListFragment listFragment);
 
-    //SongsListPresenter getPresenter();
+    SongsListPresenter getPresenter();
 }

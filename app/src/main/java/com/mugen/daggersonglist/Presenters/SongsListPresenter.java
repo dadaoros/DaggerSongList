@@ -9,12 +9,15 @@ import com.mugen.daggersonglist.Views.ViewOps;
 import java.lang.ref.WeakReference;
 import java.util.List;
 
+import javax.inject.Inject;
+
 /**
  * Created by ORTEGON on 19/11/2015.
  */
 public class SongsListPresenter implements PresenterOps.SongsListOps {
     private InteractorOps.SongsManagerOps mModel;
-    WeakReference<ViewOps.songsListOps> mView;
+    private WeakReference<ViewOps.songsListOps> mView;
+    @Inject
     public SongsListPresenter(ViewOps.songsListOps view,InteractorOps.SongsManagerOps model){
         mView=new WeakReference<ViewOps.songsListOps>(view);
         mModel=model;
