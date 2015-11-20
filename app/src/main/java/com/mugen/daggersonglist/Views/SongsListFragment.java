@@ -33,7 +33,7 @@ public class SongsListFragment extends Fragment implements ViewOps.songsListOps{
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        presenter = new SongsListPresenter(this);
+        presenter = new SongsListPresenter(this,SongManager.getInstance());
 
     }
     @Override

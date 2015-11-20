@@ -15,9 +15,9 @@ import java.util.List;
 public class SongsListPresenter implements PresenterOps.SongsListOps {
     private InteractorOps.SongsManagerOps model;
     WeakReference<ViewOps.songsListOps> mView;
-    public SongsListPresenter(ViewOps.songsListOps view){
+    public SongsListPresenter(ViewOps.songsListOps view,InteractorOps.SongsManagerOps model){
         mView=new WeakReference<ViewOps.songsListOps>(view);
-        model = new SongManager(this);
+        this.model=model;
     }
     @Override
     public void onLoadSongsList(int filter, String wordsToFilter) {
