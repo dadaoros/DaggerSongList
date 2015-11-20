@@ -13,11 +13,11 @@ import java.util.List;
  * Created by ORTEGON on 19/11/2015.
  */
 public class SongsListPresenter implements PresenterOps.SongsListOps {
-    private InteractorOps.SongsManagerOps model;
+    private InteractorOps.SongsManagerOps mModel;
     WeakReference<ViewOps.songsListOps> mView;
-    public SongsListPresenter(ViewOps.songsListOps view){
+    public SongsListPresenter(ViewOps.songsListOps view,InteractorOps.SongsManagerOps model){
         mView=new WeakReference<ViewOps.songsListOps>(view);
-        model = new SongManager(this);
+        mModel=model;
     }
     @Override
     public void onLoadSongsList(int filter, String wordsToFilter) {
@@ -29,6 +29,6 @@ public class SongsListPresenter implements PresenterOps.SongsListOps {
         mView.get().displaySongsList(songsList);
     }
     public InteractorOps.SongsManagerOps getModel(){
-        return model;
+        return mModel;
     }
 }
