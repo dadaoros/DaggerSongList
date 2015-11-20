@@ -5,6 +5,7 @@ import android.content.Context;
 
 import com.mugen.daggersonglist.Interactors.InteractorOps;
 import com.mugen.daggersonglist.Modules.InteractorModule;
+import com.mugen.daggersonglist.SongsListModule;
 
 import javax.inject.Singleton;
 
@@ -23,5 +24,5 @@ import dagger.Component;
 public interface SongsListComponent {
 
     Context getContext();
-    InteractorOps.SongsManagerOps getLoaderManagerInteractor();
+    InteractorOps.SongsManagerOps getSongManagerInteractor();
 }

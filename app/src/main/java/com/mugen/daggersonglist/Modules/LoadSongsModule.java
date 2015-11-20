@@ -20,13 +20,13 @@ public class LoadSongsModule {
     public LoadSongsModule(ViewOps.songsListOps view){
         this.view=view;
     }
+
     @Provides
     public ViewOps.songsListOps provideView(){
         return view;
     }
 
     @Provides
-    @Singleton
     public PresenterOps.SongsListOps providePresenter
             (ViewOps.songsListOps view,InteractorOps.SongsManagerOps interactor){
         return new SongsListPresenter(view,interactor);

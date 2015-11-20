@@ -2,7 +2,7 @@ package com.mugen.daggersonglist.Components;
 
 import com.mugen.daggersonglist.ActivityScope;
 import com.mugen.daggersonglist.Modules.LoadSongsModule;
-import com.mugen.daggersonglist.Presenters.SongsListPresenter;
+import com.mugen.daggersonglist.Presenters.PresenterOps;
 import com.mugen.daggersonglist.SongsListComponent;
 import com.mugen.daggersonglist.Views.SongsListFragment;
 
@@ -21,5 +21,5 @@ public interface LoadSongsListComponent {
 
     void inject(SongsListFragment listFragment);
 
-    SongsListPresenter getPresenter();
+    PresenterOps.SongsListOps getPresenter();
 }

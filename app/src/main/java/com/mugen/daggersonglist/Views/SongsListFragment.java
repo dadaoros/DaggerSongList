@@ -13,10 +13,16 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.mugen.daggersonglist.Components.DaggerLoadSongsListComponent;
+import com.mugen.daggersonglist.DaggerSongsListComponent;
 import com.mugen.daggersonglist.Interactors.SongManager;
+import com.mugen.daggersonglist.Modules.LoadSongsModule;
 import com.mugen.daggersonglist.Presenters.PresenterOps;
 import com.mugen.daggersonglist.Presenters.SongsListPresenter;
 import com.mugen.daggersonglist.R;
+import com.mugen.daggersonglist.SongsListApp;
+import com.mugen.daggersonglist.SongsListComponent;
+import com.mugen.daggersonglist.SongsListModule;
 
 import java.util.List;
 
@@ -36,7 +42,9 @@ public class SongsListFragment extends Fragment implements ViewOps.songsListOps{
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        DaggerLoadSongsListComponent.builder().
+                songsListComponent(SongsListApp.getApp(getActivity()).getComponent()).
+                loadSongsModule(new LoadSongsModule(this)).build().inject(this);
     }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

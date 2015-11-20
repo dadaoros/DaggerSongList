@@ -5,19 +5,20 @@ import android.content.Context;
 
 import javax.inject.Singleton;
 
+import dagger.Module;
 import dagger.Provides;
 
 /**
  * Created by ORTEGON on 19/11/2015.
  */
+@Module
 public class SongsListModule {
 
     private SongsListApp app;
     public SongsListModule(SongsListApp app) {
         this.app=app;
     }
-    @Provides
-    @Singleton
+    @Provides @Singleton
     public Application provideApplication() {
         return app;
     }

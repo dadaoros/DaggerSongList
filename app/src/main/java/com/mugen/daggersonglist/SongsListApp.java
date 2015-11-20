@@ -5,7 +5,6 @@ import android.content.Context;
 
 import com.mugen.daggersonglist.Components.DaggerLoadSongsListComponent;
 import com.mugen.daggersonglist.Modules.LoadSongsModule;
-import com.mugen.daggersonglist.Views.SongsListFragment;
 
 /**
  * Created by ORTEGON on 19/11/2015.
@@ -25,8 +24,11 @@ public class SongsListApp extends Application {
      * that resolve a dependency
      * */
     private void setupGraph() {
-        component = DaggerLoadSongsListComponent.builder()
-                .songsListComponent.build().inject();
+        component = DaggerSongsListComponent.
+                builder().
+                songsListModule(new SongsListModule(this)).
+                build();
+
     }
 
     public SongsListComponent getComponent() {
